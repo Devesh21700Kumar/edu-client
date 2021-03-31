@@ -1,17 +1,9 @@
-import { useState } from "react";
-import {
-  Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import React, { useState } from "react";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
+import TabList from "../../components/tabList/index";
+import TabListNew from "../../components/tabList2/index";
 import Tabs from "@material-ui/core/Tabs";
-
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
@@ -84,35 +76,10 @@ export default function CoursePageViewWithVideo(props) {
           <Tab label="More Options" />
         </Tabs>
         <TabPanel value={value} index={0}>
-          <List style={{ margin: 0, padding: 0 }}>
-            {[1, 2, 3, 4, 5].map((item, index) => {
-              return (
-                <ListItem key={index}>
-                  <ListItemText
-                    primary={
-                      <Typography variant="body2" style={{ marginBottom: "4px" }}>{`Chapter ${
-                        index + 1
-                      }: How to start With WD`}</Typography>
-                    }
-                    secondary={
-                      <Typography variant="caption">
-                        <i>
-                          50 Minutes by Anuj Garg{" "}
-                          <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}
-                        </i>
-                      </Typography>
-                    }
-                  />
-                  <ListItemSecondaryAction>
-                    <IconButton>{/* <IonIcon src={playCircleOutline} /> */}</IconButton>
-                  </ListItemSecondaryAction>
-                </ListItem>
-              );
-            })}
-          </List>
+          <TabList />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Item Two
+          <TabListNew />
         </TabPanel>
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
